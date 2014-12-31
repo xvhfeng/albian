@@ -1,0 +1,5 @@
+/Users/Seapeak/github/albian/Albian.Foundation/bin/Debug/Albian.Foundation.dll.mdb
+/Users/Seapeak/github/albian/Albian.Foundation/bin/Debug/Albian.Foundation.dll
+/Users/Seapeak/github/albian/Albian.Foundation/obj/Debug/Albian.Foundation.dll
+/Users/Seapeak/github/albian/Albian.Foundation/obj/Debug/Albian.Foundation.dll.mdb
+/Users/Seapeak/github/albian/Albian.Foundation/bin/Debug/log4net.dll

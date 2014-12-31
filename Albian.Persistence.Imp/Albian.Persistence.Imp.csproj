@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{376313F1-1886-4690-8E93-9B4ACE705868}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Albian.Persistence.Imp</RootNamespace>
+    <AssemblyName>Albian.Persistence.Imp</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Reference\dll\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.3.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Reference\dll\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AlbianObjectFactory.cs" />
+    <Compile Include="Cache\MemberCache.cs" />
+    <Compile Include="Cache\ObjectCache.cs" />
+    <Compile Include="Cache\PropertyCache.cs" />
+    <Compile Include="Cache\ResultCache.cs" />
+    <Compile Include="Cache\StorageCache.cs" />
+    <Compile Include="Cache\UnhealthyStorage.cs" />
+    <Compile Include="Command\Interface\IFakeCommandBuilder.cs" />
+    <Compile Include="Command\Interface\IStorageContextBuilder.cs" />
+    <Compile Include="Context\StorageContext.cs" />
+    <Compile Include="Context\Task.cs" />
+    <Compile Include="ConvertToDatabaseStyle.cs" />
+    <Compile Include="ConvertToDbType.cs" />
+    <Compile Include="ConvertToPermissionMode.cs" />
+    <Compile Include="ConnectionPool\ConnectionPool.cs" />
+    <Compile Include="ConnectionPool\ConnectionPoolCached.cs" />
+    <Compile Include="ConnectionPool\DbConnectionPoolManager.cs" />
+    <Compile Include="ConnectionPool\Factory\MySqlConnectionFactory.cs" />
+    <Compile Include="ConnectionPool\Factory\OracleConnectionFactory.cs" />
+    <Compile Include="ConnectionPool\Factory\SqlServerConnectionFactory.cs" />
+    <Compile Include="Heartbeat\IStorageCheckService.cs" />
+    <Compile Include="Heartbeat\StorageCheckService.cs" />
+    <Compile Include="Model\AlbianObjectFilter.cs" />
+    <Compile Include="Model\FilterCondition.cs" />
+    <Compile Include="Model\OrderByCondition.cs" />
+    <Compile Include="Notify\IConnectionNotify.cs" />
+    <Compile Include="Parser\IPersistenceParser.cs" />
+    <Compile Include="Parser\IStorageParser.cs" />
+    <Compile Include="PersistenceException.cs" />
+    <Compile Include="Query\IQueryCluster.cs" />
+    <Compile Include="Query\QueryCluster.cs" />
+    <Compile Include="TransactionCluster\ITransactionClusterScope.cs" />
+    <Compile Include="TransactionCluster\TransactionClusterScope.cs" />
+    <Compile Include="TransactionCluster\TransactionClusterState.cs" />
+    <Compile Include="Parser\Impl\FreePersistenceParser.cs" />
+    <Compile Include="Parser\Impl\FreeStorageParser.cs" />
+    <Compile Include="Parser\Impl\PersistenceParser.cs" />
+    <Compile Include="Parser\Impl\StorageParser.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reflection\ReflectMember.cs" />
+    <Compile Include="HashAlbianObjectManager.cs" />
+    <Compile Include="PersistenceService.cs" />
+    <Compile Include="Command\FakeCommandBuilder.cs" />
+    <Compile Include="Command\StorageContextBuilder.cs" />
+    <Compile Include="Command\TaskBuilder.cs" />
+    <Compile Include="Command\DatabaseFactory.cs" />
+    <Compile Include="Utils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="config\Persistence.config" />
+    <None Include="config\Storage.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Albian.Kernel\Albian.Kernel.csproj">
+      <Project>{5EF37887-AADF-4753-A1F2-BAA45135DAF4}</Project>
+      <Name>Albian.Kernel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Albian.Persistence\Albian.Persistence.csproj">
+      <Project>{911A7AEC-4D7C-4A61-88F9-7F8645735F92}</Project>
+      <Name>Albian.Persistence</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
